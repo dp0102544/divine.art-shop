@@ -1,4 +1,4 @@
-z        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,14 +9,17 @@ z        <!DOCTYPE html>
 
 <body>
 
-   <header class="top-bar">
+<!-- ===== HEADER ===== -->
+<header class="top-bar">
     <div class="logo">🛍️ Ink & Aura</div>
+
     <div class="categories">
-    <button onclick="filterCategory('all')">All</button>
-    <button onclick="filterCategory('brush')">Brushes</button>
-    <button onclick="filterCategory('color')">Colors</button>
-    <button onclick="filterCategory('book')">Books</button>
-</div>
+        <button onclick="filterCategory('all')">All</button>
+        <button onclick="filterCategory('brush')">Brushes</button>
+        <button onclick="filterCategory('color')">Colors</button>
+        <button onclick="filterCategory('book')">Books</button>
+        <button onclick="filterCategory('tool')">Tools</button>
+    </div>
 
     <div class="search-container">
         <input
@@ -33,88 +36,86 @@ z        <!DOCTYPE html>
     </div>
 </header>
 
+<!-- ===== WELCOME ===== -->
 <p style="text-align:center; font-size:18px;">
-    Welcome to the website
+    Welcome to the Ink & Aura art store
 </p>
 
-    <h2>Products</h2>
+<h2>Products</h2>
 
-    <h2>🧺 Cart Items</h2>
-    <ul id="cart-items" style="max-width:300px; margin:auto;"></ul>
-    <button onclick="window.location.href='checkout.html'"
-style="display:block;margin:20px auto;">
-Proceed to Checkout
+<!-- ===== CART ===== -->
+<h2>🧺 Cart Items</h2>
+<ul id="cart-items" style="max-width:300px; margin:auto;"></ul>
+
+<button
+    onclick="window.location.href='checkout.html'"
+    style="display:block; margin:20px auto;">
+    Proceed to Checkout
 </button>
 
-    <div class="products">
-        
-        <div class="product"data-category="book">
-            <h3>Sketch Book</h3>
-            <img src="https://i.pinimg.com/736x/7a/44/55/7a4455115fbf5d63d10c0dc021aee328.jpg">
-            <p>Price: ₹100</p>
-            <button onclick="addToCart('Sketch Book',100)">Add to Cart</button>
-        </div>
+<!-- ===== PRODUCTS GRID ===== -->
+<div class="products">
 
-        <div class="product"data-category="colour">
-            <h3>Doms Colour Pencil</h3>
-            <img src="https://tse1.mm.bing.net/th/id/OIP.NzXoLV73IsYPRw1q0JqMnAHaHa">
-            <p>Price: ₹90</p>
-            <button onclick="addToCart('Doms Colour Pencil',90)">Add to Cart</button>
-        </div>
-
-        <div class="product"data-category="colour">
-            <h3>Crayon</h3>
-            <img src="https://domsindia.com/wp-content/uploads/2022/08/DOMS-Long-Wax-Crayons-12-Shades.jpg">
-            <p>Price: ₹50</p>
-            <button onclick="addToCart('Crayon',50)">Add to Cart</button>
-        </div>
-
-        <div class="product"data-category="brush">
-            <h3>Paint Brush</h3>
-            <img src="https://m.media-amazon.com/images/I/815M6utnCVL._AC_SL1500_.jpg">
-            <p>Price: ₹95</p>
-            <button onclick="addToCart('Paint Brush',95)">Add to Cart</button>
-        </div>
-
-        <div class="product"data-category="tools">
-            <h3>Paint Gloves</h3>
-            <img src="https://www.xencelabs.com/store/Uploads/goods/20211222/0fbd34c96b9e458090ab8e09528bb772.jpg">
-            <p>Price: ₹120</p>
-            <button onclick="addToCart('Paint Gloves',120)">Add to Cart</button>
-        </div>
-
-        <div class="product"data-category="brush">
-            <h3>Ink Brush</h3>
-            <img src="https://i.pinimg.com/1200x/94/43/27/944327ccfc0b48f83905f17885d8720c.jpg">
-            <p>Price: ₹399</p>
-            <button onclick="addToCart('Ink Brush',399)">Add to Cart</button>
-        </div>
-
-        <div class="product"data-category="brush">
-            <h3>Calligraphy Ink Brush</h3>
-            <img src="https://i.pinimg.com/1200x/e9/42/3f/e9423fe7377fbde8f0a6e6c9b071377f.jpg">
-            <p>Price: ₹417</p>
-            <button onclick="addToCart('Calligraphy Ink Brush',417)">Add to Cart</button>
-        </div>
-
+    <div class="product" data-category="book">
+        <h3>Sketch Book</h3>
+        <img src="https://i.pinimg.com/736x/7a/44/55/7a4455115fbf5d63d10c0dc021aee328.jpg" alt="Sketch Book">
+        <p>Price: ₹100</p>
+        <button onclick="addToCart('Sketch Book', 100)">Add to Cart</button>
     </div>
 
-    <footer>
-        <p>© 2025 Ink & Aura</p>
-        <p>Thank you for visiting</p>
-        <p>Owner: Dhara Patel</p>
-    </footer>
+    <div class="product" data-category="color">
+        <h3>Doms Colour Pencil</h3>
+        <img src="https://tse1.mm.bing.net/th/id/OIP.NzXoLV73IsYPRw1q0JqMnAHaHa" alt="Colour Pencil">
+        <p>Price: ₹90</p>
+        <button onclick="addToCart('Doms Colour Pencil', 90)">Add to Cart</button>
+    </div>
 
-    <script src="script.js"></script>
+    <div class="product" data-category="color">
+        <h3>Crayon</h3>
+        <img src="https://domsindia.com/wp-content/uploads/2022/08/DOMS-Long-Wax-Crayons-12-Shades.jpg" alt="Crayon">
+        <p>Price: ₹50</p>
+        <button onclick="addToCart('Crayon', 50)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="brush">
+        <h3>Paint Brush</h3>
+        <img src="https://m.media-amazon.com/images/I/815M6utnCVL._AC_SL1500_.jpg" alt="Paint Brush">
+        <p>Price: ₹95</p>
+        <button onclick="addToCart('Paint Brush', 95)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="tool">
+        <h3>Paint Gloves</h3>
+        <img src="https://www.xencelabs.com/store/Uploads/goods/20211222/0fbd34c96b9e458090ab8e09528bb772.jpg" alt="Paint Gloves">
+        <p>Price: ₹120</p>
+        <button onclick="addToCart('Paint Gloves', 120)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="brush">
+        <h3>Ink Brush</h3>
+        <img src="https://i.pinimg.com/1200x/94/43/27/944327ccfc0b48f83905f17885d8720c.jpg" alt="Ink Brush">
+        <p>Price: ₹399</p>
+        <button onclick="addToCart('Ink Brush', 399)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="brush">
+        <h3>Calligraphy Ink Brush</h3>
+        <img src="https://i.pinimg.com/1200x/e9/42/3f/e9423fe7377fbde8f0a6e6c9b071377f.jpg" alt="Calligraphy Brush">
+        <p>Price: ₹417</p>
+        <button onclick="addToCart('Calligraphy Ink Brush', 417)">Add to Cart</button>
+    </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2025 Ink & Aura</p>
+    <p>Thank you for visiting</p>
+    <p>Owner: Dhara Patel</p>
+</footer>
+
+<!-- ===== SCRIPT ===== -->
+<script src="script.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
