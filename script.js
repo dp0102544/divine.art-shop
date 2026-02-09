@@ -4,10 +4,17 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const cartCount = document.getElementById("cart-count");
 const cartItems = document.getElementById("cart-items");
 
-// ===== UPDATE CART UI =====
+// ===== UPDATE CART UI (STEP 3 INCLUDED) =====
 function updateCartUI() {
     cartCount.innerText = cart.length;
     cartItems.innerHTML = "";
+
+    // ✅ STEP 3: EMPTY CART MESSAGE
+    if (cart.length === 0) {
+        cartItems.innerHTML = "<li>Your cart is empty 🛒</li>";
+        localStorage.setItem("cart", JSON.stringify(cart));
+        return;
+    }
 
     let total = 0;
 
@@ -22,12 +29,10 @@ function updateCartUI() {
         cartItems.appendChild(li);
     });
 
-    if (cart.length > 0) {
-        let totalLi = document.createElement("li");
-        totalLi.style.fontWeight = "bold";
-        totalLi.innerText = `Total: ₹${total}`;
-        cartItems.appendChild(totalLi);
-    }
+    let totalLi = document.createElement("li");
+    totalLi.style.fontWeight = "bold";
+    totalLi.innerText = `Total: ₹${total}`;
+    cartItems.appendChild(totalLi);
 
     localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -60,9 +65,7 @@ function filterCategory(category) {
 // ===== SEARCH PRODUCTS =====
 function searchProducts() {
     const input = document.getElementById("search").value.toLowerCase();
-    const products = document.querySelectorAll(".product");
-
-    products.forEach(product => {
+    document.querySelectorAll(".product").forEach(product => {
         const name = product.querySelector("h3").innerText.toLowerCase();
         product.style.display = name.includes(input) ? "block" : "none";
     });
