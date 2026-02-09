@@ -213,4 +213,58 @@ footer {
     background: #6a0dad;
     transform: scale(1.05);
 }
+/* FILTER BUTTONS */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid purple;
+    background: white;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background: purple;
+    color: white;
+}
+
+/* CHECKOUT */
+.checkout-box {
+    max-width: 400px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.checkout-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+.checkout-box button {
+    width: 100%;
+    padding: 12px;
+    background: purple;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+
 
