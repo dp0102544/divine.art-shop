@@ -57,9 +57,9 @@ footer {
 
 /* ===== TOP HEADER ===== */
 .top-bar {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
     padding: 12px 20px;
     background: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -67,7 +67,6 @@ footer {
     top: 0;
     z-index: 100;
 }
-
 .logo {
     font-size: 20px;
     font-weight: bold;
@@ -106,6 +105,7 @@ footer {
     font-size: 16px;
     font-weight: 500;
 }
+
 
 
 
