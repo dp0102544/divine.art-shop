@@ -26,7 +26,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000; /* FIX */
 }
 
 /* LOGO */
@@ -77,7 +77,6 @@ body {
     border-radius: 25px;
     border: 1px solid #ccc;
     font-size: 14px;
-    outline: none;
 }
 
 .search-container input:focus {
@@ -90,7 +89,6 @@ body {
     right: 14px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 16px;
     pointer-events: none;
 }
 
@@ -103,30 +101,20 @@ body {
 }
 
 /* ===============================
-   HERO SECTION
+   HERO SECTION (FIXED)
 ================================ */
 .hero {
+    position: relative;
+    z-index: 1; /* FIX */
     text-align: center;
     padding: 60px 20px;
     background: linear-gradient(135deg, #6a0dad, #9b59b6);
     color: white;
 }
 
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    opacity: 0.9;
-}
-
 .hero button {
     background: white;
     color: purple;
-    border: none;
     padding: 12px 30px;
     border-radius: 30px;
     font-size: 16px;
@@ -134,22 +122,12 @@ body {
     cursor: pointer;
 }
 
-.hero button:hover {
-    opacity: 0.9;
-}
-
-/* ===============================
-   SECTION HEADINGS
-================================ */
-h2 {
-    text-align: center;
-    margin: 30px 0 15px;
-}
-
 /* ===============================
    PRODUCTS GRID
 ================================ */
 .products {
+    position: relative;
+    z-index: 2; /* FIX */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 24px;
@@ -159,22 +137,21 @@ h2 {
 }
 
 /* ===============================
-   PRODUCT CARD
+   PRODUCT CARD (FIXED)
 ================================ */
 .product {
     position: relative;
+    z-index: 5; /* FIX */
     background: #ffffff;
     border-radius: 14px;
     padding: 16px;
     text-align: center;
     box-shadow: 0 6px 14px rgba(0,0,0,0.08);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    animation: cardPop 0.4s ease;
 }
 
 .product:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 /* PRODUCT IMAGE */
@@ -182,43 +159,23 @@ h2 {
     width: 100%;
     height: 160px;
     object-fit: contain;
-    border-radius: 10px;
     margin-bottom: 10px;
 }
 
-/* PRODUCT TITLE */
-.product h3 {
-    font-size: 16px;
-    margin: 8px 0 4px;
-    color: #333;
-}
-
-/* PRICE */
-.product p {
-    font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* ADD TO CART BUTTON */
+/* PRODUCT BUTTON */
 .product button {
     background: linear-gradient(135deg, #6a0dad, #8a2be2);
     color: white;
     border: none;
     padding: 10px 18px;
     border-radius: 22px;
-    font-size: 14px;
     cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.product button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
+    position: relative;
+    z-index: 10; /* FIX */
 }
 
 /* ===============================
-   BADGE
+   BADGE (FIXED)
 ================================ */
 .badge {
     position: absolute;
@@ -229,6 +186,7 @@ h2 {
     padding: 4px 10px;
     font-size: 12px;
     border-radius: 12px;
+    pointer-events: none; /* CRITICAL FIX */
 }
 
 /* ===============================
@@ -243,13 +201,6 @@ h2 {
     margin: 15px auto;
 }
 
-#cart-items li {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
 /* ===============================
    FOOTER
 ================================ */
@@ -258,33 +209,14 @@ footer {
     padding: 20px;
     background: #ffffff;
     margin-top: 40px;
-    font-size: 14px;
-    color: #666;
 }
 
 /* ===============================
    ANIMATIONS
 ================================ */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(6px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes cardPop {
-    from {
-        opacity: 0;
-        transform: scale(0.96);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===============================
@@ -294,19 +226,8 @@ footer {
     .products {
         grid-template-columns: 1fr;
     }
-
     .top-bar {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
-    .search-container {
-        width: 100%;
-    }
 }
-button {
-    pointer-events: auto;
-    position: relative;
-    z-index: 10;
-}
-
