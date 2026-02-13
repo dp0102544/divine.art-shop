@@ -1,14 +1,22 @@
 /* ===============================
-   GLOBAL VARIABLES
+   LOAD CART FROM LOCAL STORAGE
 ================================ */
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let totalPrice = 0;
+
+/* ===============================
+   SAVE CART TO STORAGE
+================================ */
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
 
 /* ===============================
    ADD TO CART
 ================================ */
 function addToCart(name, price) {
     cart.push({ name, price });
+    saveCart();
     updateCart();
 }
 
@@ -17,6 +25,7 @@ function addToCart(name, price) {
 ================================ */
 function removeFromCart(index) {
     cart.splice(index, 1);
+    saveCart();
     updateCart();
 }
 
@@ -29,6 +38,12 @@ function updateCart() {
 
     cartList.innerHTML = "";
     totalPrice = 0;
+
+    if (cart.length === 0) {
+        cartList.innerHTML = "<li>Your cart is empty 🛒</li>";
+        cartCount.textContent = 0;
+        return;
+    }
 
     cart.forEach((item, index) => {
         totalPrice += item.price;
@@ -55,7 +70,6 @@ function updateCart() {
         cartList.appendChild(li);
     });
 
-    // TOTAL PRICE
     const totalLi = document.createElement("li");
     totalLi.style.marginTop = "10px";
     totalLi.style.fontWeight = "bold";
@@ -73,7 +87,6 @@ function filterCategory(category) {
     const buttons = document.querySelectorAll(".filters button");
 
     buttons.forEach(btn => btn.classList.remove("active"));
-    event.target.classList.add("active");
 
     products.forEach(product => {
         const productCategory = product.getAttribute("data-category");
@@ -103,3 +116,10 @@ function searchProducts() {
         }
     });
 }
+
+/* ===============================
+   LOAD CART WHEN PAGE LOADS
+================================ */
+window.onload = function () {
+    updateCart();
+};
